@@ -3,7 +3,7 @@ const router = express.Router();
 const Cost = require('../models/costs');
 
 router.post('/', async (req, res) => {
-    try {2222
+    try {
         const cost = await Cost.create(req.body);
         res.status(201).json(cost);
     } catch (err) {

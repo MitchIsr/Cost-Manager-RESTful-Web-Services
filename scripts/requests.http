@@ -1,0 +1,87 @@
+### AsyncProject API requests (JetBrains HTTP Client)
+### Update @baseUrl when deploying
+@baseUrl = http://localhost:3000
+
+### ------------------------------------------------------------
+### ABOUT
+### ------------------------------------------------------------
+
+### GET /api/about
+GET {{baseUrl}}/api/about
+Accept: application/json
+
+
+### ------------------------------------------------------------
+### USERS
+### ------------------------------------------------------------
+
+### GET /api/users (list all users)
+GET {{baseUrl}}/api/users
+Accept: application/json
+
+
+### POST /api/users (add user)
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 123123,
+  "first_name": "mosh",
+  "last_name": "israeli",
+  "birthday": "1990-01-01"
+}
+
+
+### GET /api/users/:userId (details + total)
+GET {{baseUrl}}/api/users/123123
+Accept: application/json
+
+
+### ------------------------------------------------------------
+### COSTS
+### ------------------------------------------------------------
+
+### POST /api/costs (add cost)
+POST {{baseUrl}}/api/costs
+Content-Type: application/json
+Accept: application/json
+
+{
+  "description": "milk 9",
+  "category": "food",
+  "userid": 123123,
+  "sum": 8
+}
+
+
+### POST /api/add (alias for adding a cost)
+POST {{baseUrl}}/api/add
+Content-Type: application/json
+Accept: application/json
+
+{
+  "description": "math book",
+  "category": "education",
+  "userid": 123123,
+  "sum": 82
+}
+
+
+### ------------------------------------------------------------
+### REPORT
+### ------------------------------------------------------------
+
+### GET /api/report?id=...&year=...&month=...
+GET {{baseUrl}}/api/report?id=123123&year=2026&month=5
+Accept: application/json
+
+
+### ------------------------------------------------------------
+### LOGS
+### ------------------------------------------------------------
+
+### GET /api/logs
+GET {{baseUrl}}/api/logs
+Accept: application/json
+

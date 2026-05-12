@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b83eac-ce24-4d56-bf45-2bee2590f110" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/-ContentType" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/db.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +21,12 @@
     </persistenceIdMap>
   </component>
   <component name="CopilotUserSelectedChatMode">
-    <option name="chatModeId" value="Ask" />
+    <option name="chatModeId" value="Agent" />
   </component>
   <component name="CopilotUserSelectedModel">
     <selectedModels>
-      <entry key="chat-panel" value="GPT-5 mini" />
-      <entry key="agent-panel" value="GPT-5 mini" />
+      <entry key="chat-panel" value="GPT-5.2" />
+      <entry key="agent-panel" value="GPT-5.2" />
     </selectedModels>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -72,11 +68,14 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Node.js.bin\\www.executor": "Run",
+    "Node.js.db.js.executor": "Run",
+    "Node.js.users.js.executor": "Run",
+    "Node.js.www.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "javascript.nodejs.core.library.configured.version": "24.14.0",
     "javascript.nodejs.core.library.typings.version": "24.12.2",
     "javascript.preferred.runtime.type.id": "node",
@@ -96,6 +95,16 @@
       <recent name="C:\Users\Mihim\WebstormProjects\AsyncProject" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="www" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/bin/www" working-dir="$PROJECT_DIR$/bin">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.www" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e4b83eac-ce24-4d56-bf45-2bee2590f110" name="Changes" comment="" />
@@ -107,7 +116,8 @@
       <workItem from="1777305511228" duration="10042000" />
       <workItem from="1777364022483" duration="9437000" />
       <workItem from="1777443723865" duration="4396000" />
-      <workItem from="1777986559057" duration="11341000" />
+      <workItem from="1777986559057" duration="12693000" />
+      <workItem from="1778609362820" duration="4334000" />
     </task>
     <servers />
   </component>

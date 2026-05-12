@@ -18,12 +18,24 @@ app.set('view engine', 'pug');
 
 app.use(pinoHttp());
 app.use(express.json());
+
+// If JSON parsing fails, Express throws a SyntaxError before routes are reached.
+// For /api requests, return a JSON error payload (not an HTML error page).
+app.use('/api', (err, req, res, next) => {
+  const isJsonParseError = err instanceof SyntaxError && err.status === 400 && 'body' in err;
+  if (isJsonParseError) {
+    return res.status(400).json({ id: 'INVALID_JSON', message: 'Request body must be valid JSON' });
+  }
+  return next(err);
+});
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

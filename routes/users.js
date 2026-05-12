@@ -63,17 +63,16 @@ router.get('/:userId', async (req, res) => {
 	let payload = null;
 
 	try {
-		const userId = parseInt(req.params.userId, 10);
+		const userId = Number(req.params.userId);
 
-		if (Number.isNaN(userId)) {
+		if (!Number.isInteger(userId)) {
 			status = 400;
 			payload = {
-					 id: 'VALIDATION_ERROR',
-				message: 'User id must be a number'
+				id: 'VALIDATION_ERROR',
+				message: 'User id must be an integer number'
 			};
 		} else {
-			const user = await User.findOne({ id: userId });
-
+			const user = await User.findOne({ id: userId }).lean();
 			if (!user) {
 				status = 404;
 				payload = {
@@ -90,7 +89,7 @@ router.get('/:userId', async (req, res) => {
 					id: user.id,
 					first_name: user.first_name,
 					last_name: user.last_name,
-					total: totalResult[0]?.total || 0
+					total: totalResult.length ? (totalResult[0].total || 0) : 0
 				};
 			}
 		}

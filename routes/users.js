@@ -11,29 +11,55 @@ router.post('/', async (req, res) => {
 	try {
 		const { id, first_name, last_name, birthday } = req.body;
 
-		const missingRequired = !id || !first_name || !last_name || !birthday;
+		const missingRequired =
+			id === undefined || id === null ||
+			!first_name || !last_name || !birthday;
+
 		if (missingRequired) {
 			status = 400;
 			payload = {
 				id: 'VALIDATION_ERROR',
 				message: 'Missing required fields: id, first_name, last_name, birthday'
 			};
+		} else if (!Number.isInteger(Number(id)) || Number(id) <= 0) {
+			status = 400;
+			payload = {
+				id: 'VALIDATION_ERROR',
+				message: 'Field "id" must be a positive integer'
+			};
 		} else {
-			const user = await User.create({
-				id,
-				first_name,
-				last_name,
-				birthday: new Date(birthday)
-			});
+			const parsedBirthday = new Date(birthday);
+			if (isNaN(parsedBirthday.getTime())) {
+				status = 400;
+				payload = {
+					id: 'VALIDATION_ERROR',
+					message: 'Field "birthday" must be a valid date'
+				};
+			} else {
+				const user = await User.create({
+					id: Number(id),
+					first_name,
+					last_name,
+					birthday: parsedBirthday
+				});
 
-			payload = user;
+				payload = user;
+			}
 		}
 	} catch (err) {
-		status = 400;
-		payload = {
-			id: 'ADD_USER_ERROR',
-			message: err.message
-		};
+		if (err && err.code === 11000) {
+			status = 409;
+			payload = {
+				id: 'USER_ALREADY_EXISTS',
+				message: 'A user with this id already exists'
+			};
+		} else {
+			status = 400;
+			payload = {
+				id: 'ADD_USER_ERROR',
+				message: err.message
+			};
+		}
 	}
 
 	return res.status(status).json(payload);

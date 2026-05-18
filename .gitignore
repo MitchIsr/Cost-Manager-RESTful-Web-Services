@@ -4,6 +4,7 @@ node_modules/
 # dotenv environment files (do not commit secrets)
 .env
 .env.*
+!.env.example
 
 # Logs
 logs/

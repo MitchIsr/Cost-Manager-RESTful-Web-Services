@@ -3,7 +3,7 @@
 const app = require('../services/logs-service');
 const http = require('http');
 
-const port = process.env.PORT || 3002;
+const port = process.env.LOGS_PORT;
 const server = http.createServer(app);
 
 server.listen(port);

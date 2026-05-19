@@ -1,58 +1,47 @@
 const express = require('express');
 const router = express.Router();
 const Cost = require('../models/Cost');
+const User = require('../models/User');
 const categoriesConfig = require('../models/categories.json');
 const allowedCategories = categoriesConfig.categories;
-// POST /api/costs (and also /api/add because api.js maps /add to this router)
+
 router.post('/', async (req, res) => {
-	let status = 201;
-	let payload = null;
-
 	try {
-		const {description, category, userid, sum} = req.body;
+		const { description, category, userid, sum } = req.body;
 
-		const isMissingRequiredInput = !description || !category || !userid || sum === undefined;
-		if (isMissingRequiredInput) {
-			status = 400;
-			payload = {
-				     id: 'VALIDATION_ERROR',
-				message: 'Missing required fields: description, category, userid, sum'
-			};
-		}
-		else
-		{
-			const isValidCategory = allowedCategories.includes(category);
-			if (!isValidCategory)
-			{
-				status = 400;
-				payload = {
-						 id: 'INVALID_CATEGORY',
-					message: `category must be one of: ${allowedCategories.join(', ')}`
-				};
-			}
-			else
-			{
-				const cost = await Cost.create({
-					  description,
-					  category,
-					  userid,
-					  sum,
-					  createdAt: new Date()
-				})
+		const userExists = await User.findOne({ id: userid });
 
-				payload = cost;
-			}
+		if (!userExists) {
+			return res.status(404).json({
+				id: 'USER_NOT_FOUND',
+				message: `User with id ${userid} does not exist`
+			});
 		}
-	}
-	catch (err) {
-		status = 400;
-		payload = {
+
+		if (typeof sum !== 'number' || sum <= 0) {
+			return res.status(400).json({
+				id: 'INVALID_SUM',
+				message: 'Sum must be a positive number'
+			});
+		}
+
+		const cost = await Cost.create({
+			description,
+			category,
+			userid,
+			sum,
+			createdAt: new Date()
+		});
+
+		return res.status(201).json(cost);
+
+	} catch (err) {
+		return res.status(400).json({
 			id: 'ADD_COST_ERROR',
 			message: err.message
-		};
+		});
 	}
-
-	return res.status(status).json(payload);
 });
 
 module.exports = router;
+

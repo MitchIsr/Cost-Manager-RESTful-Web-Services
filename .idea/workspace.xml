@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b83eac-ce24-4d56-bf45-2bee2590f110" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/admin-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/admin-server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/costs-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/costs-server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/logs-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/logs-server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/users-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/users-server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/costs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/costs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/costs-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/costs-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/logs-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/logs-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users-service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +29,12 @@
     </persistenceIdMap>
   </component>
   <component name="CopilotUserSelectedChatMode">
-    <option name="chatModeId" value="Agent" />
+    <option name="chatModeId" value="Ask" />
   </component>
   <component name="CopilotUserSelectedModel">
     <selectedModels>
-      <entry key="chat-panel" value="GPT-5.2" />
-      <entry key="agent-panel" value="GPT-5.2" />
+      <entry key="chat-panel" value="Auto" />
+      <entry key="agent-panel" value="Auto" />
     </selectedModels>
   </component>
   <component name="FileTemplateManagerImpl">

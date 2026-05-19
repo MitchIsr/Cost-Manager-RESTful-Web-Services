@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 	let payload;
 
 	try {
-		payload = teamMembers.teamMembers;
+		payload = teamMembers.TeamMembers;
 	} catch (err) {
 		status = 500;
 		payload = {

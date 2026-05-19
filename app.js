@@ -5,7 +5,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const pinoHttp = require('pino-http');
 const indexRouter = require('./routes/index');
-const apiRouter = require('./routes/api');
 const app = express();
 
 const connectDB = require('./models/db');
@@ -34,7 +33,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

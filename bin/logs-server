@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const app = require('../services/logs-service');
+const http = require('http');
+
+const port = process.env.PORT || 3002;
+const server = http.createServer(app);
+
+server.listen(port);
+server.on('error', (error) => {
+  console.error('Server error:', error);
+  process.exit(1);
+});
+server.on('listening', () => {
+  console.log(`Logs Service listening on port ${port}`);
+});
+

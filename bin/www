@@ -1,91 +1,62 @@
 #!/usr/bin/env node
 
 /**
- * Module dependencies.
+ * Start all 4 microservices
  */
 
-var app = require('../app');
-var debug = require('debug')('asyncproject:server');
-var http = require('http');
+require('dotenv').config();
+const http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
+const usersApp = require('../services/users-service');
+const costsApp = require('../services/costs-service');
+const logsApp = require('../services/logs-service');
+const adminApp = require('../services/admin-service');
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+// Service configuration
+const services = {
+  users: { app: usersApp, port: process.env.USERS_PORT},
+  costs: { app: costsApp, port: process.env.COSTS_PORT },
+  logs: { app: logsApp, port: process.env.LOGS_PORT },
+  admin: { app: adminApp, port: process.env.ABOUT_PORT },
+};
 
-/**
- * Create HTTP server.
- */
+let servicesRunning = 0;
 
-var server = http.createServer(app);
+// Start all services
+const serviceEntries = Object.entries(services);
+let delayMs = 0;
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+serviceEntries.forEach(([name, config], index) => {
+  setTimeout(() => {
+    const server = http.createServer(config.app);
+    
+    // Enable SO_REUSEADDR to allow reuse of port in TIME_WAIT state
+    server.on('error', (error) => {
+      if (error.code === 'EADDRINUSE') {
+        console.error(`[ERROR] ${name} service:`, error.message);
+        console.error(`  Port ${config.port} is already in use`);
+        console.error(`  Try: taskkill /F /IM node.exe`);
+        process.exit(1);
+      }
+    });
+    
+    server.listen(config.port, 'localhost', () => {
+      console.log(`[OK] ${name.toUpperCase()} service on http://localhost:${config.port}`);
+      servicesRunning++;
+    });
+  }, delayMs);
+  
+  delayMs += 500; // 500ms stagger between service starts
+});
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+// Handle graceful shutdown
+process.on('SIGINT', () => {
+  console.log('\n\nShutting down all services...');
+  process.exit(0);
+});
 
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
-}
-
-/**
- * Event listener for HTTP server "error" event.
- */
-
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
-}
+process.on('SIGTERM', () => {
+  console.log('\n\nTerminating all services...');
+  process.exit(0);
+});
 

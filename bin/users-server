@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const app = require('../services/users-service');
+const http = require('http');
+
+const port = process.env.PORT || 3000;
+const server = http.createServer(app);
+
+server.listen(port);
+server.on('error', (error) => {
+  console.error('Server error:', error);
+  process.exit(1);
+});
+server.on('listening', () => {
+  console.log(`Users Service listening on port ${port}`);
+});
+

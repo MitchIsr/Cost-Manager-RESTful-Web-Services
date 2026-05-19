@@ -1,20 +1,31 @@
 require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const pinoHttp = require('pino-http');
 
 const aboutRouter = require('../routes/about');
+const connectDB = require('../models/db');
 const requestLogger = require('../LoggerActions/RequestLogger');
+
+// Even though /api/about reads no database, the requestLogger
+// writes to the logs collection on every request — so we need a connection.
+connectDB();
 
 const app = express();
 
-app.use(pinoHttp());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use((err, req, res, next) => {
+	if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+		return res.status(400).json({ id: 'INVALID_JSON', message: 'Request body must be valid JSON' });
+	}
+	return next(err);
+});
+
 app.use(requestLogger);
 
+// GET /api/about — developers team
 app.use('/api/about', aboutRouter);
 
 module.exports = app;

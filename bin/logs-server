@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 
-const app = require('../services/logs-service');
-const http = require('http');
+/*
+ * logs-server
+ * -----------
+ * Entry point for the LOGS microservice. Listens on LOGS_PORT and serves:
+ *   GET /api/logs — list every persisted request log
+ */
 
-const port = process.env.LOGS_PORT;
+const http = require('http');
+const app  = require('../services/logs-service');
+
+const port = process.env.LOGS_PORT || 3003;
 const server = http.createServer(app);
 
 server.listen(port);
-server.on('error', (error) => {
-  console.error('Server error:', error);
-  process.exit(1);
-});
-server.on('listening', () => {
-  console.log(`Logs Service listening on port ${port}`);
-});
-
+server.on('error',     (err) => { console.error('logs-service error:', err); process.exit(1); });
+server.on('listening', ()    => console.log(`[logs] listening on port ${port}`));

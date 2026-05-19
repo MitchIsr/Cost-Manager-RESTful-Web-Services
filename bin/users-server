@@ -1,17 +1,22 @@
 #!/usr/bin/env node
 
-const app = require('../services/users-service');
-const http = require('http');
+/*
+ * users-server
+ * ------------
+ * Entry point for the USERS microservice. One of the four required
+ * processes. Listens on USERS_PORT (from .env) and serves:
+ *   POST /api/add          — add user
+ *   POST /api/users        — add user (alias)
+ *   GET  /api/users        — list users
+ *   GET  /api/users/:id    — user details + total
+ */
 
-const port = process.env.USERS_PORT;
+const http = require('http');
+const app  = require('../services/users-service');
+
+const port = process.env.USERS_PORT || 3001;
 const server = http.createServer(app);
 
 server.listen(port);
-server.on('error', (error) => {
-  console.error('Server error:', error);
-  process.exit(1);
-});
-server.on('listening', () => {
-  console.log(`Users Service listening on port ${port}`);
-});
-
+server.on('error',     (err) => { console.error('users-service error:', err); process.exit(1); });
+server.on('listening', ()    => console.log(`[users] listening on port ${port}`));

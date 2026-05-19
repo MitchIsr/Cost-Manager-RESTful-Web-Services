@@ -1,26 +1,29 @@
 {
-  "name": "asyncproject",
-  "version": "0.0.0",
+  "name": "cost-manager-restful-web-services",
+  "version": "1.0.0",
   "private": true,
+  "description": "Cost Manager — four-process RESTful Web Services (final project)",
   "scripts": {
-    "start": "node ./bin/www",
     "start:users": "node ./bin/users-server",
     "start:costs": "node ./bin/costs-server",
-    "start:logs": "node ./bin/logs-server",
+    "start:logs":  "node ./bin/logs-server",
     "start:admin": "node ./bin/admin-server",
-    "test": "node test-services.js"
+    "test": "jest --runInBand"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
     "dotenv": "^17.4.2",
     "express": "^4.22.1",
-    "http-errors": "~1.6.3",
     "mongoose": "^9.5.0",
-    "morgan": "^1.10.1",
-    "pino": "^10.3.1",
-    "pino-http": "^11.0.0",
-    "pino-mongodb": "^5.0.0",
-    "pug": "^2.0.4"
+    "pino": "^10.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^9.4.0",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000
   }
 }

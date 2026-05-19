@@ -7,15 +7,10 @@ const pinoHttp = require('pino-http');
 const indexRouter = require('./routes/index');
 const app = express();
 
-const connectDB = require('./models/db');
-connectDB();
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(pinoHttp());
 app.use(express.json());
 
 // If JSON parsing fails, Express throws a SyntaxError before routes are reached.

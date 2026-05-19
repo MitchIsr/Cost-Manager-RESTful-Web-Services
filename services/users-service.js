@@ -4,13 +4,9 @@ const cookieParser = require('cookie-parser');
 const pinoHttp = require('pino-http');
 
 const usersRouter = require('../routes/users');
-const connectDB = require('../models/db');
 const requestLogger = require('../LoggerActions/RequestLogger');
 
 const app = express();
-
-connectDB();
-
 app.use(pinoHttp());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

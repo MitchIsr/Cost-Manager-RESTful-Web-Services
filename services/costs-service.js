@@ -19,7 +19,6 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
-app.use('/api/costs', costsRouter);
 app.use('/api/add', costsRouter);
 app.use('/api/report', reportRouter);
 

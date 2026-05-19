@@ -14,4 +14,3 @@ server.on('error', (error) => {
 server.on('listening', () => {
   console.log(`Admin Service listening on port ${port}`);
 });
-

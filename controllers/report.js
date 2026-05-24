@@ -74,7 +74,7 @@ const getReport = async (userId, reportYear, reportMonth) => {
                 });
         }
 
-        // Return perfectly successfully constraint bounds limits effectively details cleanly variables.
+        // Return successful constraint bounds limits effectively details cleanly variables.
         return reportResponse;
 };
 

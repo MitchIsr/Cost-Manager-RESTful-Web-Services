@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b83eac-ce24-4d56-bf45-2bee2590f110" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoggerActions/RequestLogger.js" beforeDir="false" afterPath="$PROJECT_DIR$/LoggerActions/RequestLogger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Cost.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Cost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Log.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Report.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Report.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/about.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/costs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/costs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/logs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/logs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/report.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/admin-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/costs-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/costs-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/logs-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/logs-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/users-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/report.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +119,7 @@
       <workItem from="1777986559057" duration="12693000" />
       <workItem from="1778609362820" duration="4334000" />
       <workItem from="1779443223141" duration="5936000" />
-      <workItem from="1779639443999" duration="1322000" />
+      <workItem from="1779639443999" duration="2171000" />
     </task>
     <servers />
   </component>

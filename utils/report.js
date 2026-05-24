@@ -14,7 +14,7 @@ const buildEmptyCategoryMap = () => {
 /**
  * Validates request schema parameters structurally bounding valid checks properly safely limit checking mapped elements map.
  * @param {string|number} id - Target numeric reference limits formatted securely bounds safely limited contextual mapping safely bounded map safe map bounds accurately bounds dynamically map.
- * @param {string|number} year - String map bounds securely securely mapped details formats map formats bounds boundaries correctly correctly mappings safely explicitly constraints securely contextual explicitly configured bounds mapping mapping boundaries limits effectively safe configured maps limits safely limit boundaries map limits.
+ * @param {string|number} year - String map bounds securely mapped details formats map formats bounds boundaries correctly mappings safely explicitly constraints securely contextual explicitly configured bounds mapping mapping boundaries limits effectively safe configured maps limits safely limit boundaries map limits.
  * @param {string|number} month - Properly mapped text boundaries explicitly structural bounded mapped parameters securely formatted.
  * @returns {Object} Boundaries result correctly parsed mapped variables accurately safely formatted map structurally.
  */

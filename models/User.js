@@ -16,6 +16,7 @@
 
 const mongoose = require('mongoose');
 
+// Define Schema for users with required constraints
 const usersSchema = new mongoose.Schema({
 	id:         { type: Number, required: true, unique: true },
 	first_name: { type: String, required: true, trim: true },

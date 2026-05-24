@@ -12,6 +12,8 @@ connectDB();
 
 const app = express();
 
+app.set('json spaces', 2);
+
 // Body parsers and cookies
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

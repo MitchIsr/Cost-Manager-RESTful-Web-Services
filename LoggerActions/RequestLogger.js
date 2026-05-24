@@ -18,42 +18,50 @@
  *     path) — this keeps the HTTP response fast and never lets a log
  *     write error fail the request.
  */
-
 const pino = require('pino');
 const Log = require('../models/Log');
 
 // Pino logger — pretty-prints nothing, just structured NDJSON to stdout.
 // Setting `base: null` removes pid/hostname noise; we add timestamp manually.
 const logger = pino({
-	base: null,
-	timestamp: pino.stdTimeFunctions.isoTime,
-	level: process.env.LOG_LEVEL || 'info'
+        base: null,
+        timestamp: pino.stdTimeFunctions.isoTime,
+        level: process.env.LOG_LEVEL || 'info'
 });
 
-// Middleware: log every HTTP request after the response is sent
-module.exports = (req, res, next) => {
-	// Capture request start so we can also record duration if useful
-	const startedAt = Date.now();
+/**
+ * Express middleware to handle HTTP request logging to Pino and MongoDB.
+ * @param {Object} req - The express request object.
+ * @param {Object} res - The express response object.
+ * @param {Function} next - The express next middleware function.
+ */
+const requestLogger = (req, res, next) => {
+        // Capture request start so we can also record duration if useful
+        const startedAt = Date.now();
 
-	res.on('finish', () => {
-		const entry = {
-			method: req.method,
-			path: req.originalUrl,
-			status: res.statusCode,
-			message: `${req.method} ${req.originalUrl} ${res.statusCode}`,
-			timestamp: new Date(),
-			durationMs: Date.now() - startedAt
-		};
+        res.on('finish', () => {
+                const requestLogData = {
+                        method: req.method,
+                        path: req.originalUrl,
+                        status: res.statusCode,
+                        message: `${req.method} ${req.originalUrl} ${res.statusCode}`,
+                        timestamp: new Date(),
+                        durationMs: Date.now() - startedAt
+                };
 
-		// (1) Use Pino to *create* the log message (and emit to stdout)
-		logger.info(entry, entry.message);
+                // (1) Use Pino to *create* the log message (and emit to stdout)
+                logger.info(requestLogData, requestLogData.message);
 
-		// (2) Persist the same record to MongoDB for GET /api/logs.
-		//     We don't await — logging must never block the response.
-		Log.create(entry).catch((err) => {
-			logger.error({ err: err.message }, 'failed to persist log entry');
-		});
-	});
+                // (2) Persist the same record to MongoDB for GET /api/logs.
+                // We don't await — logging must never block the response.
+                Log.create(requestLogData).catch((error) => {
+                        // ignore the rejection avoiding halting the stream
+                        logger.error({ error: error.message }, 'failed to persist log entry');
+                });
+        });
 
-	next();
+        // resume processing the route
+        next();
 };
+
+module.exports = requestLogger;

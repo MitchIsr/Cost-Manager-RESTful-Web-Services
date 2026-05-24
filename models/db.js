@@ -17,19 +17,28 @@ const path = require('path');
 // Load .env from the project root regardless of cwd
 require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
+/**
+ * Initiates the MongoDB connection for the current process.
+ * Halts the process running if unable to connect successfully.
+ */
 const connectDB = async () => {
-	const uri = process.env.MONGO_URI;
-	if (!uri) {
-		console.error('[db] MONGO_URI is not set in .env — aborting');
-		process.exit(1);
-	}
-	try {
-		await mongoose.connect(uri);
-		console.log('[db] MongoDB connected');
-	} catch (err) {
-		console.error('[db] MongoDB connection failed:', err.message);
-		process.exit(1);
-	}
+        const hasUri = process.env.MONGO_URI;
+        if (!hasUri) {
+                // missing uri throws immediate error flag
+                console.error('[db] MONGO_URI is not set in .env — aborting');
+                process.exit(1);
+        }
+        
+        try {
+                // execute standard db connections mapping
+                const uriString = String(hasUri);
+                await mongoose.connect(uriString);
+                console.log('[db] MongoDB connected');
+        } catch (err) {
+                // throw explicit error description string to the user
+                console.error('[db] MongoDB connection failed:', err.message);
+                process.exit(1);
+        }
 };
 
 module.exports = connectDB;

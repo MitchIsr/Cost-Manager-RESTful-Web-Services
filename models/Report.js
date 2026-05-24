@@ -10,6 +10,7 @@
 
 const mongoose = require('mongoose');
 
+// Define Schema for pre-computed cache reports
 const reportSchema = new mongoose.Schema({
 	userid:    { type: Number, required: true },
 	year:      { type: Number, required: true },

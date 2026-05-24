@@ -13,25 +13,26 @@
 const express = require('express');
 const router = express.Router();
 
-const Log = require('../models/Log');
+const { getLogs } = require('../controllers/logs');
 
-// GET /api/logs
+// GET route for fetching application requests logs
 router.get('/', async (req, res) => {
-	let status = 200;
-	let payload = null;
+        let httpStatusCode = 200;
+        let logsList = null;
 
-	try {
-		// Newest first — friendlier when scrolling through requests
-		payload = await Log.find().sort({ timestamp: -1 });
-	} catch (err) {
-		status = 500;
-		payload = {
-			id: 'GET_LOGS_ERROR',
-			message: err.message
-		};
-	}
+        try {
+                // retrieve from database via controller
+                logsList = await getLogs();
+        } catch (error) {
+                // properly catch infrastructure exceptions
+                httpStatusCode = 500;
+                logsList = {
+                        id: 'GET_LOGS_ERROR',
+                        message: error.message
+                };
+        }
 
-	return res.status(status).json(payload);
+        return res.status(httpStatusCode).json(logsList);
 });
 
 module.exports = router;

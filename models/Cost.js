@@ -17,12 +17,13 @@ const mongoose = require('mongoose');
 const categoriesConfig = require('./categories.json');
 const allowedCategories = categoriesConfig.categories;
 
+// Define Schema for saved cost configurations items
 const costSchema = new mongoose.Schema({
-	description: { type: String, required: true, trim: true },
-	category:    { type: String, required: true, enum: allowedCategories },
-	userid:      { type: Number, required: true },
-	sum:         { type: mongoose.Schema.Types.Double, required: true },
-	createdAt:   { type: Date, default: Date.now }
+        description: { type: String, required: true, trim: true },
+           category: { type: String, required: true, enum: allowedCategories },
+             userid: { type: Number, required: true },
+                sum: { type: mongoose.Schema.Types.Double, required: true },
+          createdAt: { type: Date, default: Date.now }
 }, { versionKey: false });
 
 module.exports = mongoose.model('costs', costSchema);

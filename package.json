@@ -8,6 +8,7 @@
     "start:costs": "node ./bin/costs-server",
     "start:logs":  "node ./bin/logs-server",
     "start:admin": "node ./bin/admin-server",
+    "start:all": "node run-all-servers.js",
     "test": "jest --runInBand"
   },
   "dependencies": {

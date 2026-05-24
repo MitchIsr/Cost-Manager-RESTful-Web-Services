@@ -8,6 +8,7 @@
 
 const mongoose = require('mongoose');
 
+// Define Schema for detailed logging actions
 const logSchema = new mongoose.Schema({
 	timestamp:  { type: Date,   default: Date.now },  // when the log was written
 	method:     { type: String },                     // HTTP method (GET/POST/...)

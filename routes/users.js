@@ -5,160 +5,127 @@
  *   POST /api/add        — add a new user
  *   GET  /api/users      — list all users
  *   GET  /api/users/:id  — details of one user, including total costs
- *
- * It is mounted twice by the users microservice (services/users-service.js):
- *   app.use('/api/add',   usersRouter)   // for "Adding User"
- *   app.use('/api/users', usersRouter)   // for "List of Users" + details
- *
- * Both mount points share the same router because the spec lists
- * /api/add for adding a user (under "Adding User"); the users
- * microservice owns that route in the 4-process deployment.
  */
 
 const express = require('express');
 const router = express.Router();
 
-const User = require('../models/User');
-const Cost = require('../models/Cost');
+const { validateUserInput, validateUserIdParam } = require('../utils/users');
+const { addUser, getUsers, getUserDetails } = require('../controllers/users');
 
-// POST  (mounted under /api/add and /api/users)
-// Adds a new user. Required body: id, first_name, last_name, birthday.
+// POST route to add a new user
+// Requires id, first_name, last_name, and birthday in the body
 router.post('/', async (req, res) => {
-	let status = 201;
-	let payload = null;
+        let httpStatusCode = 201;
+        let responseBody = null;
 
-	try {
-		const { id, first_name, last_name, birthday } = req.body;
+        try {
+                // retrieve fields from request body
+                const { id, first_name, last_name, birthday } = req.body;
+                
+                // delegate validation to a separate focused function
+                const validationOutcome = validateUserInput(id, first_name, last_name, birthday);
+                
+                if (!validationOutcome.isValid) {
+                        httpStatusCode = 400;
+                        responseBody = {
+                                id: validationOutcome.errorId,
+                                message: validationOutcome.errorMessage
+                        };
+                } else {
+                        // create user via controller
+                        responseBody = await addUser(
+                                validationOutcome.numericId, 
+                                first_name, 
+                                last_name, 
+                                validationOutcome.parsedBirthday
+                        );
+                }
+        } catch (error) {
+                // handle mongodb duplicate key error
+                const isDuplicateError = error && error.code === 11000;
+                if (isDuplicateError) {
+                        httpStatusCode = 409;
+                        responseBody = {
+                                id: 'USER_ALREADY_EXISTS',
+                                message: 'A user with this id already exists'
+                        };
+                } else {
+                        httpStatusCode = 400;
+                        responseBody = {
+                                id: 'ADD_USER_ERROR',
+                                message: error.message
+                        };
+                }
+        }
 
-		// Missing-field validation. id===0 is treated as missing too
-		// since the schema requires a positive integer.
-		const missingRequired =
-			id === undefined || id === null ||
-			!first_name || !last_name || !birthday;
-
-		if (missingRequired) {
-			status = 400;
-			payload = {
-				id: 'VALIDATION_ERROR',
-				message: 'Missing required fields: id, first_name, last_name, birthday'
-			};
-		} else if (!Number.isInteger(Number(id)) || Number(id) <= 0) {
-			// id must be a positive integer
-			status = 400;
-			payload = {
-				id: 'VALIDATION_ERROR',
-				message: 'Field "id" must be a positive integer'
-			};
-		} else {
-			// Validate that birthday is a parseable date
-			const parsedBirthday = new Date(birthday);
-			if (isNaN(parsedBirthday.getTime())) {
-				status = 400;
-				payload = {
-					id: 'VALIDATION_ERROR',
-					message: 'Field "birthday" must be a valid date'
-				};
-			} else {
-				// All input validated — create the user
-				const user = await User.create({
-					id: Number(id),
-					first_name,
-					last_name,
-					birthday: parsedBirthday
-				});
-				payload = user;
-			}
-		}
-	} catch (err) {
-		// MongoDB duplicate key — same `id` already exists
-		if (err && err.code === 11000) {
-			status = 409;
-			payload = {
-				id: 'USER_ALREADY_EXISTS',
-				message: 'A user with this id already exists'
-			};
-		} else {
-			status = 400;
-			payload = {
-				id: 'ADD_USER_ERROR',
-				message: err.message
-			};
-		}
-	}
-
-	return res.status(status).json(payload);
+        return res.status(httpStatusCode).json(responseBody);
 });
 
-// GET  (mounted under /api/users)
-// Returns all users using the property names from the users collection.
+// GET route to return all users
+// Queries the database to list all existing users
 router.get('/', async (req, res) => {
-	let status = 200;
-	let payload = null;
+        let httpStatusCode = 200;
+        let usersList = null;
 
-	try {
-		payload = await User.find();
-	} catch (err) {
-		status = 500;
-		payload = {
-			id: 'GET_USERS_ERROR',
-			message: err.message
-		};
-	}
+        try {
+                // fetch all user documents via controller
+                usersList = await getUsers();
+        } catch (error) {
+                // handle db errors
+                httpStatusCode = 500;
+                usersList = {
+                        id: 'GET_USERS_ERROR',
+                        message: error.message
+                };
+        }
 
-	return res.status(status).json(payload);
+        return res.status(httpStatusCode).json(usersList);
 });
 
-// GET /:userId  (mounted under /api/users)
-// Returns { id, first_name, last_name, total } for the given user.
+// GET route to fetch a single user by their id
+// Also fetches their total computed costs
 router.get('/:userId', async (req, res) => {
-	let status = 200;
-	let payload = null;
+        let httpStatusCode = 200;
+        let userDetailsResponse = null;
 
-	try {
-		// userId arrives as a string from the URL — coerce to number
-		const userId = Number(req.params.userId);
+        try {
+                // validate user id from the url params
+                const validationOutcome = validateUserIdParam(req.params.userId);
 
-		if (!Number.isInteger(userId)) {
-			status = 400;
-			payload = {
-				id: 'VALIDATION_ERROR',
-				message: 'User id must be an integer number'
-			};
-		} else {
-			// Fetch the user document
-			const user = await User.findOne({ id: userId }).lean();
-			if (!user) {
-				status = 404;
-				payload = {
-					id: 'USER_NOT_FOUND',
-					message: 'User not found'
-				};
-			} else {
-				// Aggregate the sum of all costs belonging to this user.
-				// Using $sum over $sum keeps the math in the DB rather
-				// than streaming every cost document back to Node.
-				const totalResult = await Cost.aggregate([
-					{ $match: { userid: userId } },
-					{ $group: { _id: null, total: { $sum: '$sum' } } }
-				]);
+                if (!validationOutcome.isValid) {
+                        httpStatusCode = 400;
+                        userDetailsResponse = {
+                                id: 'VALIDATION_ERROR',
+                                message: 'User id must be an integer number'
+                        };
+                } else {
+                        const userIdNumber = validationOutcome.numericId;
+                        
+                        try {
+                                userDetailsResponse = await getUserDetails(userIdNumber);
+                        } catch (error) {
+                                if (error.name === 'USER_NOT_FOUND') {
+                                        httpStatusCode = 404;
+                                        userDetailsResponse = {
+                                                id: 'USER_NOT_FOUND',
+                                                message: error.message
+                                        };
+                                } else {
+                                        throw error; // rethrow to be caught by outer catch block
+                                }
+                        }
+                }
+        } catch (error) {
+                // catch unexpected runtime errors
+                httpStatusCode = 500;
+                userDetailsResponse = {
+                        id: 'GET_USER_ERROR',
+                        message: error.message
+                };
+        }
 
-				payload = {
-					id:         user.id,
-					first_name: user.first_name,
-					last_name:  user.last_name,
-					total:      totalResult.length ? (totalResult[0].total || 0) : 0
-				};
-			}
-		}
-	} catch (err) {
-		status = 500;
-		payload = {
-			id: 'GET_USER_ERROR',
-			message: err.message
-		};
-	}
-
-	return res.status(status).json(payload);
+        return res.status(httpStatusCode).json(userDetailsResponse);
 });
 
 module.exports = router;

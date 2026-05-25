@@ -11,8 +11,8 @@ const request = require('supertest');
 const { startMongo, stopMongo, clearCollections, buildApp } = require('./helpers/test-app');
 
 const reportRouter = require('../routes/report');
-const Cost = require('../models/Cost');
-const Report = require('../models/Report');
+const Cost = require('../models/cost.model');
+const Report = require('../models/report.model');
 
 let app;
 

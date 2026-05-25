@@ -19,7 +19,7 @@
  *     write error fail the request.
  */
 const pino = require('pino');
-const Log = require('../models/Log');
+const Log = require('../models/log.model');
 
 // Pino logger — pretty-prints nothing, just structured NDJSON to stdout.
 // Setting `base: null` removes pid/hostname noise; we add timestamp manually.

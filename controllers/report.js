@@ -1,5 +1,5 @@
-const Cost = require('../models/Cost');
-const Report = require('../models/Report');
+const Cost = require('../models/cost.model');
+const Report = require('../models/report.model');
 const { buildEmptyCategoryMap, supportedCategoriesList } = require('../utils/report');
 
 /**

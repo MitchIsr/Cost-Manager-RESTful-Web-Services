@@ -1,4 +1,4 @@
-const Log = require('../models/Log');
+const Log = require('../models/log.model');
 
 /**
  * Retrieves the full application log sequence historically.

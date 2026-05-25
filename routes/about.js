@@ -4,7 +4,7 @@
  * Returns the team members (first_name + last_name only).
  * Per spec, the team-member data is NOT stored in the database — that
  * way the submission database can stay empty except for the single
- * imaginary user. The data is read from models/TeamMembers.json, which
+ * imaginary user. The data is read from models/team-members.json, which
  * is bundled with the source code.
  */
 

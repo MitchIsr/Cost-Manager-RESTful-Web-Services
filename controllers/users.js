@@ -1,5 +1,5 @@
-const User = require('../models/User');
-const Cost = require('../models/Cost');
+const User = require('../models/user.model');
+const Cost = require('../models/cost.model');
 
 /**
  * Persists user details elements bounded structurally dynamically.

@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 
 const aboutRouter = require('../routes/about');
 const connectDB = require('../models/db');
-const requestLogger = require('../LoggerActions/RequestLogger');
+const requestLogger = require('../logger-actions/request-logger');
 
 // Even though /api/about reads no database, the requestLogger
 // writes to the logs collection on every request — so we need a connection.

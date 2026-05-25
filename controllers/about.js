@@ -1,4 +1,4 @@
-const teamMembersData = require('../models/TeamMembers.json');
+const teamMembersData = require('../models/team-members.json');
 const { extractMemberDetails } = require('../utils/about');
 
 /**

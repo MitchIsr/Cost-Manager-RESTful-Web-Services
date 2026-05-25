@@ -11,8 +11,8 @@ const request = require('supertest');
 const { startMongo, stopMongo, clearCollections, buildApp } = require('./helpers/test-app');
 
 const usersRouter = require('../routes/users');
-const User = require('../models/User');
-const Cost = require('../models/Cost');
+const User = require('../models/user.model');
+const Cost = require('../models/cost.model');
 
 // Mount the router at both /api/add and /api/users so the test
 // app mirrors the real users-service.

@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const costsRouter = require('../routes/costs');
 const reportRouter = require('../routes/report');
 const connectDB = require('../models/db');
-const requestLogger = require('../LoggerActions/RequestLogger');
+const requestLogger = require('../logger-actions/request-logger');
 
 // One Mongo connection per process
 connectDB();

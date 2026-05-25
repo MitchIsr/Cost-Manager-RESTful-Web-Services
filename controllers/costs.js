@@ -1,5 +1,5 @@
-const Cost = require('../models/Cost');
-const User = require('../models/User');
+const Cost = require('../models/cost.model');
+const User = require('../models/user.model');
 
 /**
  * Persists a new cost configuration item for a matched user.

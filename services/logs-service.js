@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 
 const logsRouter = require('../routes/logs');
 const connectDB = require('../models/db');
-const requestLogger = require('../LoggerActions/RequestLogger');
+const requestLogger = require('../logger-actions/request-logger');
 
 // Logs service reads the logs collection — needs its own DB connection
 connectDB();

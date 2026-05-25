@@ -3,9 +3,9 @@
  * --------------------------
  * Returns every document in the `logs` collection, newest first.
  * The property names of each item match the schema fields defined in
- * models/Log.js (timestamp, method, path, status, message, durationMs).
+ * log.model.js (timestamp, method, path, status, message, durationMs).
  *
- * Logs themselves are written by LoggerActions/RequestLogger.js, which
+ * Logs themselves are written by logger-actions/request-logger.js, which
  * uses Pino as the logger and persists each entry via the Mongoose
  * `Log` model. See that file for the full pipeline.
  */

@@ -2,7 +2,7 @@
  * Log model
  * ---------
  * Mongoose schema for the `logs` collection.
- * One document per HTTP request, written by LoggerActions/RequestLogger.js.
+ * One document per HTTP request, written by logger-actions/request-logger.js.
  * The collection name is "logs" (Mongoose pluralizes the model name).
  */
 

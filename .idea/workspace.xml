@@ -5,10 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b83eac-ce24-4d56-bf45-2bee2590f110" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoggerActions/RequestLogger.js" beforeDir="false" afterPath="$PROJECT_DIR$/logger-actions/request-logger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/costs.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/costs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/logs.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/logs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/report.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Cost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Log.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TeamMembers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/logs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/logs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/requests.http" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/requests.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/costs-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/costs-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/logs-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/logs-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/costs.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/costs.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/logs.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/logs.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/report.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/report.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/users.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/users.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,44 +83,83 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.bin\\www.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.db.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.users.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.www.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;24.14.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;24.12.2&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.requests | ------------------------------------------------------------#1.executor": "Run",
+    "HTTP Request.requests | ------------------------------------------------------------#2.executor": "Run",
+    "HTTP Request.requests | ------------------------------------------------------------#3.executor": "Run",
+    "HTTP Request.requests | GET /api/users/:userId (details + total).executor": "Run",
+    "HTTP Request.requests | POST /api/add (alias for adding a cost).executor": "Run",
+    "HTTP Request.requests | POST /api/users (add user).executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.bin\\www.executor": "Run",
+    "Node.js.db.js.executor": "Run",
+    "Node.js.users.js.executor": "Run",
+    "Node.js.www.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "24.14.0",
+    "javascript.nodejs.core.library.typings.version": "24.12.2",
+    "javascript.preferred.runtime.type.id": "node",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mihim\WebstormProjects\AsyncProject\models" />
       <recent name="C:\Users\Mihim\WebstormProjects\AsyncProject" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="www" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/bin/www" working-dir="$PROJECT_DIR$/bin">
+  <component name="RunDashboard">
+    <option name="configurationStatuses">
+      <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="requests | ------------------------------------------------------------#2" value="STOPPED" />
+              <entry key="requests | ------------------------------------------------------------#3" value="STOPPED" />
+              <entry key="requests | GET /api/users/:userId (details + total)" value="STOPPED" />
+              <entry key="requests | POST /api/add (alias for adding a cost)" value="STOPPED" />
+              <entry key="requests | POST /api/users (add user)" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP Request.requests | POST /api/add (alias for adding a cost)">
+    <configuration name="requests | ------------------------------------------------------------#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="------------------------------------------------------------#2" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | ------------------------------------------------------------#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="------------------------------------------------------------#3" index="5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | GET /api/users/:userId (details + total)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="GET /api/users/:userId (details + total)" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | POST /api/add (alias for adding a cost)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="POST /api/add (alias for adding a cost)" index="6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | POST /api/users (add user)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="POST /api/users (add user)" index="3" runType="Run single request">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.www" />
+        <item itemvalue="HTTP Request.requests | POST /api/add (alias for adding a cost)" />
+        <item itemvalue="HTTP Request.requests | ------------------------------------------------------------#3" />
+        <item itemvalue="HTTP Request.requests | GET /api/users/:userId (details + total)" />
+        <item itemvalue="HTTP Request.requests | POST /api/users (add user)" />
+        <item itemvalue="HTTP Request.requests | ------------------------------------------------------------#2" />
       </list>
     </recent_temporary>
   </component>
@@ -119,7 +177,8 @@
       <workItem from="1777986559057" duration="12693000" />
       <workItem from="1778609362820" duration="4334000" />
       <workItem from="1779443223141" duration="5936000" />
-      <workItem from="1779639443999" duration="2171000" />
+      <workItem from="1779639443999" duration="2909000" />
+      <workItem from="1779685366145" duration="2339000" />
     </task>
     <servers />
   </component>

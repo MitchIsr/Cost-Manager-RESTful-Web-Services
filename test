@@ -1,0 +1,99 @@
+a=https://async-logs.onrender.com
+b=https://async-users.onrender.com
+c=https://async-costs.onrender.com
+d=https://async-about.onrender.com
+
+testing getting the about
+-------------------------
+url=https://async-about.onrender.com/api/about/
+data.status_code=200
+b'[\n  {\n    "first_name": "Michael",\n    "last_name": "Israeli"\n  },\n  {\n    "first_name": "Ilay",\n    "last_name": "Weizman"\n  },\n  {\n    "first_name": "Alon",\n    "last_name": "Dolev"\n  }\n]'
+data.text=[
+  {
+    "first_name": "Michael",
+    "last_name": "Israeli"
+  },
+  {
+    "first_name": "Ilay",
+    "last_name": "Weizman"
+  },
+  {
+    "first_name": "Alon",
+    "last_name": "Dolev"
+  }
+]
+[{'first_name': 'Michael', 'last_name': 'Israeli'}, {'first_name': 'Ilay', 'last_name': 'Weizman'}, {'first_name': 'Alon', 'last_name': 'Dolev'}]
+
+
+testing getting the report - 1
+------------------------------
+url=https://async-costs.onrender.com/api/report/?id=123123&year=2026&month=1
+data.status_code=200
+b'{\n  "userid": 123123,\n  "year": 2026,\n  "month": 1,\n  "costs": [\n    {\n      "food": []\n    },\n    {\n      "health": []\n    },\n    {\n      "housing": []\n    },\n    {\n      "sports": []\n    },\n    {\n      "education": []\n    }\n  ]\n}'
+data.text={
+  "userid": 123123,
+  "year": 2026,
+  "month": 1,
+  "costs": [
+    {
+      "food": []
+    },
+    {
+      "health": []
+    },
+    {
+      "housing": []
+    },
+    {
+      "sports": []
+    },
+    {
+      "education": []
+    }
+  ]
+}
+
+
+
+testing adding cost item
+----------------------------------
+url=https://async-costs.onrender.com/api/add/
+data.status_code=201
+b'{\n  "description": "milk 9",\n  "category": "food",\n  "userid": 123123,\n  "sum": 8,\n  "createdAt": "2026-05-31T13:21:17.530Z",\n  "_id": "6a1c35cdd0c3ddc33754595c"\n}'
+
+
+testing getting the report - 2
+------------------------------
+url=https://async-costs.onrender.com/api/report/?id=123123&year=2026&month=5
+data.status_code=200
+b'{\n  "userid": 123123,\n  "year": 2026,\n  "month": 5,\n  "costs": [\n    {\n      "food": [\n        {\n          "sum": 8,\n          "description": "milk 9",\n          "day": 31\n        }\n      ]\n    },\n    {\n      "health": []\n    },\n    {\n      "housing": []\n    },\n    {\n      "sports": []\n    },\n    {\n      "education": []\n    }\n  ]\n}'
+data.text={
+  "userid": 123123,
+  "year": 2026,
+  "month": 5,
+  "costs": [
+    {
+      "food": [
+        {
+          "sum": 8,
+          "description": "milk 9",
+          "day": 31
+        }
+      ]
+    },
+    {
+      "health": []
+    },
+    {
+      "housing": []
+    },
+    {
+      "sports": []
+    },
+    {
+      "education": []
+    }
+  ]
+}
+
+

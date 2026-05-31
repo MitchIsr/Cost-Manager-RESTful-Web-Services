@@ -1,0 +1,30 @@
+{
+  "name": "cost-manager-restful-web-services",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cost Manager — four-process RESTful Web Services (final project)",
+  "scripts": {
+    "start:users": "node ./bin/users_server",
+    "start:costs": "node ./bin/costs_server",
+    "start:logs":  "node ./bin/logs_server",
+    "start:admin": "node ./bin/admin_server",
+    "start:all": "node run-all-servers.js",
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.1",
+    "mongoose": "^9.5.0",
+    "pino": "^10.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^9.4.0",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000
+  }
+}

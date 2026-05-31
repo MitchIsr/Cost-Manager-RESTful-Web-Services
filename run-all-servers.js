@@ -6,10 +6,10 @@
 const { spawn } = require('child_process');
 
 const services = [
-        { name: 'users', cmd: 'node', args: ['./bin/users-server'] },
-        { name: 'costs', cmd: 'node', args: ['./bin/costs-server'] },
-        { name: 'logs', cmd: 'node', args: ['./bin/logs-server'] },
-        { name: 'admin', cmd: 'node', args: ['./bin/admin-server'] }
+        { name: 'users', cmd: 'node', args: ['./bin/users_server'] },
+        { name: 'costs', cmd: 'node', args: ['./bin/costs_server'] },
+        { name: 'logs', cmd: 'node', args: ['./bin/logs_server'] },
+        { name: 'admin', cmd: 'node', args: ['./bin/admin_server'] }
 ];
 
 /**

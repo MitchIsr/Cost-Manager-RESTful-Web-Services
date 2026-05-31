@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+/*
+ * admin-server
+ * ------------
+ * Entry point for the ADMIN microservice. Listens on ABOUT_PORT and serves:
+ *   GET /api/about — team members (developers)
+ */
+
+const http = require('http');
+const app  = require('../services/admin-service');
+
+const port = process.env.ABOUT_PORT || 3004;
+const server = http.createServer(app);
+
+server.listen(port);
+server.on('error',     (err) => { console.error('admin-service error:', err); process.exit(1); });
+server.on('listening', ()    => console.log(`[admin] listening on port ${port}`));

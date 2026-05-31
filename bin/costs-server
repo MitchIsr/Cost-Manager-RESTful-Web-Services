@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+/*
+ * costs-server
+ * ------------
+ * Entry point for the COSTS microservice. Listens on COSTS_PORT and
+ * serves:
+ *   POST /api/add     — add a cost item
+ *   GET  /api/report  — monthly report (Computed Design Pattern)
+ */
+
+const http = require('http');
+const app  = require('../services/costs-service');
+
+const port = process.env.COSTS_PORT || 3002;
+const server = http.createServer(app);
+
+server.listen(port);
+server.on('error',     (err) => { console.error('costs-service error:', err); process.exit(1); });
+server.on('listening', ()    => console.log(`[costs] listening on port ${port}`));

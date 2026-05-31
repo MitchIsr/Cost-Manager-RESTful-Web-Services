@@ -8,10 +8,10 @@ filename = input("filename=")
 # The third will handle all cost-related tasks. (c)
 # The fourth will handle any admin-related tasks (e.g. developers details) (d)
 
-a = "https://async-logs.onrender.com"  # Logs Service
-b = "https://async-users.onrender.com"  # Users Service
-c = "https://async-costs.onrender.com"  # Costs Service
-d = "https://async-about.onrender.com"  # Admin Service
+a = "http://localhost:3003"  # Logs Service
+b = "http://localhost:3001"  # Users Service
+c = "http://localhost:3002"  # Costs Service
+d = "http://localhost:3004"  # Admin Service
 
 output = open(filename, "w")
 sys.stdout = output

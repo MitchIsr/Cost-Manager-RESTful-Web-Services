@@ -10,7 +10,7 @@
 const request = require('supertest');
 const { startMongo, stopMongo, clearCollections, buildApp } = require('./helpers/test-app');
 
-const costsRouter = require('../routes/costs_route');
+const costsRouter = require('../routes/costs');
 const User = require('../models/user.model');
 const Cost = require('../models/cost.model');
 

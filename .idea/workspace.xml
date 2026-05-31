@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e4b83eac-ce24-4d56-bf45-2bee2590f110" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoggerActions/RequestLogger.js" beforeDir="false" afterPath="$PROJECT_DIR$/logger-actions/request-logger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/costs.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/costs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/logs.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/logs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Cost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Log.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TeamMembers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/logs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/logs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/requests.http" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/requests.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/admin-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/costs-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/costs-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/logs-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/logs-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/costs.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/costs.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/logs.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/logs.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/report.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/report.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/users.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/users.test.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/Mihim/WebstormProjects/AsyncProject" value="3CvvCj5Xpq0OVLbMRqSjop9ETuw" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedChatMode">
+    <option name="chatModeId" value="Agent" />
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="chat-panel" value="Gemini 3.1 Pro" />
+      <entry key="agent-panel" value="Gemini 3.1 Pro" />
+    </selectedModels>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MitchIsr&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MitchIsr/Cost-Manager-RESTful-Web-Services.git&quot;,
+    &quot;accountId&quot;: &quot;0217ac7e-cc8f-4c89-af04-f177c3572a4f&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3CvvCj5Xpq0OVLbMRqSjop9ETuw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.requests | ------------------------------------------------------------#1.executor": "Run",
+    "HTTP Request.requests | ------------------------------------------------------------#2.executor": "Run",
+    "HTTP Request.requests | ------------------------------------------------------------#3.executor": "Run",
+    "HTTP Request.requests | GET /api/users/:userId (details + total).executor": "Run",
+    "HTTP Request.requests | POST /api/add (alias for adding a cost).executor": "Run",
+    "HTTP Request.requests | POST /api/users (add user).executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.bin\\www.executor": "Run",
+    "Node.js.db.js.executor": "Run",
+    "Node.js.users.js.executor": "Run",
+    "Node.js.www.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "24.14.0",
+    "javascript.nodejs.core.library.typings.version": "24.12.2",
+    "javascript.preferred.runtime.type.id": "node",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mihim\WebstormProjects\AsyncProject\models" />
+      <recent name="C:\Users\Mihim\WebstormProjects\AsyncProject" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationStatuses">
+      <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="requests | ------------------------------------------------------------#2" value="STOPPED" />
+              <entry key="requests | ------------------------------------------------------------#3" value="STOPPED" />
+              <entry key="requests | GET /api/users/:userId (details + total)" value="STOPPED" />
+              <entry key="requests | POST /api/add (alias for adding a cost)" value="STOPPED" />
+              <entry key="requests | POST /api/users (add user)" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP Request.requests | POST /api/add (alias for adding a cost)">
+    <configuration name="requests | ------------------------------------------------------------#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="------------------------------------------------------------#2" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | ------------------------------------------------------------#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="------------------------------------------------------------#3" index="5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | GET /api/users/:userId (details + total)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="GET /api/users/:userId (details + total)" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | POST /api/add (alias for adding a cost)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="POST /api/add (alias for adding a cost)" index="6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="requests | POST /api/users (add user)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/scripts/requests.http" executionIdentifier="POST /api/users (add user)" index="3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.requests | POST /api/add (alias for adding a cost)" />
+        <item itemvalue="HTTP Request.requests | ------------------------------------------------------------#3" />
+        <item itemvalue="HTTP Request.requests | GET /api/users/:userId (details + total)" />
+        <item itemvalue="HTTP Request.requests | POST /api/users (add user)" />
+        <item itemvalue="HTTP Request.requests | ------------------------------------------------------------#2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e4b83eac-ce24-4d56-bf45-2bee2590f110" name="Changes" comment="" />
+      <created>1777278732635</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1777278732635</updated>
+      <workItem from="1777278733693" duration="730000" />
+      <workItem from="1777305511228" duration="10042000" />
+      <workItem from="1777364022483" duration="9437000" />
+      <workItem from="1777443723865" duration="4396000" />
+      <workItem from="1777986559057" duration="12693000" />
+      <workItem from="1778609362820" duration="4334000" />
+      <workItem from="1779443223141" duration="5936000" />
+      <workItem from="1779639443999" duration="2909000" />
+      <workItem from="1779685366145" duration="2339000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

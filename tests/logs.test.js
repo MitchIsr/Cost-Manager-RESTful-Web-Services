@@ -7,7 +7,7 @@
 const request = require('supertest');
 const { startMongo, stopMongo, clearCollections, buildApp } = require('./helpers/test-app');
 
-const logsRouter = require('../routes/logs_route');
+const logsRouter = require('../routes/logs');
 const Log = require('../models/log.model');
 
 let app;

@@ -9,7 +9,7 @@
 const request = require('supertest');
 const express = require('express');
 
-const aboutRouter = require('../routes/about_route');
+const aboutRouter = require('../routes/about');
 
 function makeApp() {
 	const app = express();

@@ -4,10 +4,10 @@
   "private": true,
   "description": "Cost Manager — four-process RESTful Web Services (final project)",
   "scripts": {
-    "start:users": "node ./bin/users-server",
-    "start:costs": "node ./bin/costs-server",
-    "start:logs":  "node ./bin/logs-server",
-    "start:admin": "node ./bin/admin-server",
+    "start:users": "node ./bin/users_server",
+    "start:costs": "node ./bin/costs_server",
+    "start:logs":  "node ./bin/logs_server",
+    "start:admin": "node ./bin/admin_server",
     "start:all": "node run-all-servers.js",
     "test": "jest --runInBand"
   },

@@ -6,7 +6,7 @@ https://async-costs.onrender.com
 
 Service Names: {users,logs,about,report}
 
-GET Response add: api/<Service Name> 
+GET Response add: api/"ServiceName" 
 
 GET specific user details: https://async-users.onrender.com/api/users/123123
 GET All Users: https://async-users.onrender.com/api/users

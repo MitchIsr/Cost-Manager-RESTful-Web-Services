@@ -4,7 +4,7 @@ https://async-logs.onrender.com
 https://async-about.onrender.com
 https://async-costs.onrender.com
 
-<Service Names> = {users,logs,about,report}
+Service Names: {users,logs,about,report}
 
 GET Response add: api/<Service Name> 
 
